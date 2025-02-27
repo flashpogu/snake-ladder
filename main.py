@@ -25,7 +25,6 @@ class SnakeLadderGame:
         self.board_photo = ImageTk.PhotoImage(self.board_img)
         self.canvas.create_image(250, 250, image=self.board_photo)
         
-        self.draw_board()
         
         self.dice_label = tk.Label(root, text="Roll the Dice", font=("Arial", 14))
         self.dice_label.pack()
@@ -38,15 +37,6 @@ class SnakeLadderGame:
         
         self.player_positions = {"Player 1": self.canvas.create_oval(5, 5, 20, 20, fill="red"),
                                 "Player 2": self.canvas.create_oval(25, 5, 40, 20, fill="blue")}
-    
-    def draw_board(self):
-        for row in range(self.board_size):
-            for col in range(self.board_size):
-                x1, y1 = col * self.cell_size, (9 - row) * self.cell_size
-                x2, y2 = x1 + self.cell_size, y1 + self.cell_size
-                self.canvas.create_rectangle(x1, y1, x2, y2, outline="black")
-                number = row * self.board_size + (col + 1 if row % 2 == 0 else self.board_size - col)
-                self.canvas.create_text(x1 + 25, y1 + 25, text=str(number))
     
     def roll_dice(self):
         roll = random.randint(1, 6)
