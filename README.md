@@ -1,4 +1,4 @@
-# Snake-Ladder
+# Snake-Ladder 🐍🪜
 
 snake ladder game using tkinter.
 
